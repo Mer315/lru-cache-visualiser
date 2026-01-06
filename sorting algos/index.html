@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app">
+        <h1>Sorting Visualizer</h1>
+
+        <div class="controls">
+            <select id="algoSelect" class="select">
+                <option value="bubble">Bubble Sort</option>
+                <option value="selection">Selection Sort</option>
+                <option value="insertion">Insertion Sort</option>
+            </select>
+            <input id="arrayInput" type="text" placeholder="e.g. 5, 3, 8, 1">
+            <button id="randomBtn">Random</button>
+            <button id="sortBtn">Sort</button>
+            <button id="resetBtn" class="btn-muted">Reset</button>
+        </div>
+
+        <div id="operation" class="meta">Operation: None</div>
+
+        <div class="bars-wrap">
+            <div id="bars" class="bars"></div>
+        </div>
+
+        <h2>Activity</h2>
+        <div id="activityLog" class="activity-log" aria-live="polite" aria-atomic="false"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

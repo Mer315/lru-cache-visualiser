@@ -1,5 +1,7 @@
 let cache = [];
 
+// ----- Activity log helper -----
+// Adds a new line on top and highlights it as the current activity.
 function logEvent(message) {
     const log = document.getElementById("activityLog");
     if (!log) return;
@@ -17,6 +19,11 @@ function logEvent(message) {
     }
 }
 
+// ----- Main action: add a process reference -----
+// Implements LRU behavior:
+// - hit: move process to MRU (front)
+// - miss: insert at MRU
+// - if capacity exceeded: evict LRU (back)
 function addProcess() {
     const capacity = document.getElementById("capacity").value;
     const process = document.getElementById("process").value;
@@ -26,11 +33,12 @@ function addProcess() {
     }
     const cap = parseInt(capacity);
 
+    // Precompute what will happen (used only for narration)
     const wasHit = cache.indexOf(process) !== -1;
     const willEvict = !wasHit && cache.length >= cap;
     const lruBefore = willEvict ? cache[cache.length - 1] : null;
 
-    // If process already exists → remove it
+    // If process already exists → remove it (so we can re-add to MRU)
     const index = cache.indexOf(process);
     if (index !== -1) {
         cache.splice(index, 1);
@@ -42,8 +50,11 @@ function addProcess() {
         cache.pop();
     }
     document.getElementById("process").value = "";
+
+    // Update UI
     renderCache();
 
+    // Narration
     if (wasHit) {
         logEvent(`Cache hit: "${process}" moved to MRU.`);
     } else {
@@ -54,6 +65,7 @@ function addProcess() {
     }
 }
 
+// ----- Render cache state (MRU -> LRU) -----
 function renderCache() {
     const container = document.getElementById("cacheContainer");
     container.innerHTML = "";

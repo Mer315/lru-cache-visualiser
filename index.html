@@ -2,27 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>LRU Cache Visualizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Visualizers</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <main class="app">
-        <h1>LRU Cache Visualizer</h1>
+        <!-- Home page: quick links to each visualizer -->
+        <h1>DSA Visualizers</h1>
 
-        <div class="controls">
-            <input type="number" id="capacity" placeholder="Cache Capacity">
-            <input type="text" id="process" placeholder="Enter Process">
-            <button onclick="addProcess()">Add Process</button>
+        <p class="meta">Pick a visualizer to open:</p>
+
+        <div class="grid">
+            <!-- Link: LRU Cache -->
+            <a class="card" href="lru%20cache/index.html">
+                <div class="card-title">LRU Cache</div>
+                <div class="card-sub">MRU/LRU updates + activity log</div>
+            </a>
+
+            <!-- Link: AVL Tree -->
+            <a class="card" href="avl%20tree/index.html">
+                <div class="card-title">AVL Tree</div>
+                <div class="card-sub">Insert/Delete + step-by-step search</div>
+            </a>
+
+            <!-- Link: Sorting Algorithms -->
+            <a class="card" href="sorting%20algos/index.html">
+                <div class="card-title">Sorting</div>
+                <div class="card-sub">Bubble / Selection / Insertion (dropdown)</div>
+            </a>
         </div>
-
-        <h2>Cache State (MRU ➝ LRU)</h2>
-        <div id="cacheContainer"></div>
-
-        <h2>Activity</h2>
-        <div id="activityLog" class="activity-log" aria-live="polite" aria-atomic="false"></div>
     </main>
-
-    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LRU Cache Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main class="app">
+        <h1>LRU Cache Visualizer</h1>
+
+        <div class="controls">
+            <input type="number" id="capacity" placeholder="Cache Capacity">
+            <input type="text" id="process" placeholder="Enter Process">
+            <button onclick="addProcess()">Add Process</button>
+        </div>
+
+        <h2>Cache State (MRU ➝ LRU)</h2>
+        <div id="cacheContainer"></div>
+
+        <h2>Activity</h2>
+        <div id="activityLog" class="activity-log" aria-live="polite" aria-atomic="false"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
